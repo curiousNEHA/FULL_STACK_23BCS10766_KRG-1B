@@ -101,7 +101,7 @@ table {
 }
 
 th {
-    background-color: #007bff;
+    background-color: green;
     color: white;
     padding: 10px;
 }
@@ -136,7 +136,7 @@ tr:nth-child(even) {
 }
 
 .form button {
-    background-color: #007bff;
+    background-color: green;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -145,7 +145,7 @@ tr:nth-child(even) {
 }
 
 .form button:hover {
-    background-color: #0056b3;
+    background-color: lightgreen;
 }
 
 footer {
