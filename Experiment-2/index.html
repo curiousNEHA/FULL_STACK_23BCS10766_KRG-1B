@@ -50,19 +50,9 @@
             <div class="notification-panel">
               <div class="notification-header">
                 <h4>Notifications</h4>
-                <button class="clear-btn">Clear All</button>
+           
               </div>
-              <ul class="notification-list">
-                <li class="notification-item">
-                  <span class="icon">🔔</span> New user signed up
-                </li>
-                <li class="notification-item">
-                  <span class="icon">📊</span> Report is ready to view
-                </li>
-                <li class="notification-item">
-                  <span class="icon">⚠️</span> System update scheduled
-                </li>
-              </ul>
+           
             </div>
           </div>
 
@@ -186,11 +176,7 @@
       e.stopPropagation();
       profileDropdown.classList.toggle('show');
     });
-    notifBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      notifications.classList.toggle("show");
-      profileDropdown.classList.remove("show"); 
-    })
+   
     document.addEventListener('click', () => {
       profileDropdown.classList.remove('show');
       notifications.classList.remove("show");
