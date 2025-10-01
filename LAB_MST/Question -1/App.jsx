@@ -1,4 +1,4 @@
-//create a to-do application
+// To-do application
 import React, { useState } from "react";
 
 function App() {
