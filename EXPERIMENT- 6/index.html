@@ -1,1 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Drawing Tool</title>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            background: #f9f9f9;
+        }
+        svg {
+            border: 2px dashed #333;
+            margin-top: 10px;
+            cursor: crosshair;
+            background: #fff;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        button, select {
+            padding: 5px 12px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            background: #eee;
+            cursor: pointer;
+        }
+        #shapeCounter {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Interactive SVG Drawing Tool</h2>
+    <div class="controls">
+        <label for="shape">Shape:</label>
+        <select id="shape">
+            <option value="circle">Circle</option>
+            <option value="rectangle">Rectangle</option>
+            <option value="ellipse">Ellipse</option>
+        </select>
+
+        <button id="undo">Undo</button>
+        <button id="clear">Clear</button>
+
+        <span id="shapeCounter">Shapes Drawn: 0</span>
+    </div>
+
+    <svg id="drawingArea" width="800" height="500"></svg>
+
+    <script>
+        const svg = document.getElementById('drawingArea');
+        const shapeSelect = document.getElementById('shape');
+        const undoBtn = document.getElementById('undo');
+        const clearBtn = document.getElementById('clear');
+        const shapeCounter = document.getElementById('shapeCounter');
+
+        let isDrawing = false;
+        let startX = 0, startY = 0;
+        let currentShape = null;
+        let undoStack = [];
+
+        function randomColor() {
+            return '#' + Math.floor(Math.random()*16777215).toString(16);
+        }
+
+        svg.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            const rect = svg.getBoundingClientRect();
+            startX = e.clientX - rect.left;
+            startY = e.clientY - rect.top;
+
+            const type = shapeSelect.value;
+            currentShape = document.createElementNS("http://www.w3.org/2000/svg", type);
+
+            currentShape.setAttribute("fill", randomColor());
+            currentShape.setAttribute("stroke", randomColor());
+            currentShape.setAttribute("stroke-width", 2);
+
+            if(type === "circle") {
+                currentShape.setAttribute("cx", startX);
+                currentShape.setAttribute("cy", startY);
+                currentShape.setAttribute("r", 0);
+            } else if(type === "rectangle") {
+                currentShape.setAttribute("x", startX);
+                currentShape.setAttribute("y", startY);
+                currentShape.setAttribute("width", 0);
+                currentShape.setAttribute("height", 0);
+            } else if(type === "ellipse") {
+                currentShape.setAttribute("cx", startX);
+                currentShape.setAttribute("cy", startY);
+                currentShape.setAttribute("rx", 0);
+                currentShape.setAttribute("ry", 0);
+            }
+
+            svg.appendChild(currentShape);
+        });
+
+        svg.addEventListener('mousemove', (e) => {
+            if(!isDrawing) return;
+            const rect = svg.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            const type = shapeSelect.value;
+
+            if(type === "circle") {
+                const radius = Math.sqrt(Math.pow(mouseX - startX, 2) + Math.pow(mouseY - startY, 2));
+                currentShape.setAttribute("r", radius);
+            } else if(type === "rectangle") {
+                currentShape.setAttribute("width", Math.abs(mouseX - startX));
+                currentShape.setAttribute("height", Math.abs(mouseY - startY));
+                currentShape.setAttribute("x", Math.min(mouseX, startX));
+                currentShape.setAttribute("y", Math.min(mouseY, startY));
+            } else if(type === "ellipse") {
+                currentShape.setAttribute("rx", Math.abs(mouseX - startX)/2);
+                currentShape.setAttribute("ry", Math.abs(mouseY - startY)/2);
+                currentShape.setAttribute("cx", (startX + mouseX)/2);
+                currentShape.setAttribute("cy", (startY + mouseY)/2);
+            }
+        });
+
+        svg.addEventListener('mouseup', () => {
+            if(!isDrawing) return;
+            isDrawing = false;
+            undoStack.push(currentShape);
+            currentShape = null;
+            shapeCounter.textContent = `Shapes Drawn: ${undoStack.length}`;
+        });
+
+        undoBtn.addEventListener('click', () => {
+            if(undoStack.length === 0) return;
+            const last = undoStack.pop();
+            svg.removeChild(last);
+            shapeCounter.textContent = `Shapes Drawn: ${undoStack.length}`;
+        });
+
+        clearBtn.addEventListener('click', () => {
+            while(svg.firstChild) {
+                svg.removeChild(svg.firstChild);
+            }
+            undoStack = [];
+            shapeCounter.textContent = `Shapes Drawn: 0`;
+        });
+    </script>
+</body>
+</html>
 
