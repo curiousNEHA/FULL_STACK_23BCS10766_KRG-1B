@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 20px;
+}
+
+
+.introduction {
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.introduction img {
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+#headline {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+#details {
+    margin-top: 10px;
+    color: #2c3e50;
+}
+
+#detail {
+    font-style: italic;
+    color: #777;
+}
+
+/* Links */
+.introduction a {
+    text-decoration: none;
+    margin: 0 10px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.introduction a:hover {
+    color: #0056b3;
+}
+
+
+.skills, .projects, .qualification, .certifications, .form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+
+.skills ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skills li {
+    background-color: #e9ecef;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+
+.projects ol {
+    padding-left: 20px;
+}
+
+.projects p {
+    margin: 5px 0 15px 0;
+    color: #555;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th {
+    background-color: green;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.certifications ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+.form label {
+    font-weight: bold;
+}
+
+.form input, 
+.form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: lightgreen;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px;
+    font-size: 14px;
+    color: #777;
+}
