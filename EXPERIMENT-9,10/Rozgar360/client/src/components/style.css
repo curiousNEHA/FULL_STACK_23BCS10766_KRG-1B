@@ -1,0 +1,271 @@
+
+
+/* 🔹 Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px 50px 20px;
+  background: linear-gradient(135deg, #ff00a2, #0a3d62);
+  color: white;
+}
+
+.hero h2 {
+  font-size: 2.4em;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.1em;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+    color: white;
+}
+
+.card-section {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+    background-color: #fff0f6;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  width: 300px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tag {
+  background-color: #e9edff;
+  color: #4f46e5;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 0.6rem;
+  color: #1f2937;
+}
+
+p {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.learn-btn,
+.choose-btn {
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-top: 1.2rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.learn-btn {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.learn-btn:hover {
+  background: #e0e7ff;
+}
+
+.choose-btn:hover {
+  background-color: #4338ca;
+}
+
+.pro-card {
+  position: relative;
+  background-color: #fff0f6;
+}
+
+.price-tag {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background-color: #ff6b81;
+  color: #fff;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+  margin-top: 1rem;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+}
+
+.stats h4 {
+  font-size: 18px;
+  color: #4f46e5;
+}
+
+.stats p {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  body {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .card-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.hero {
+  margin-bottom: 80px; /* 👈 adds vertical space below hero */
+}
+
+/* 🔹 Hero Text Animations */
+
+/* Keyframes for fade and slide */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animation applied to hero heading */
+.hero-title {
+  font-size: 2.6em;
+  margin-bottom: 15px;
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+/* Animation applied to hero paragraph */
+.hero-text {
+  font-size: 1.1em;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out 0.5s forwards;
+}
+
+/* Optional glow effect for the heading */
+.hero-title {
+  text-shadow: 0 0 8px rgba(255,255,255,0.6);
+  letter-spacing: 1px;
+}
+
+/* Add a smooth gradient animation background (optional) */
+.hero {
+  background: linear-gradient(135deg, #ff00c3, #0a3d62);
+  background-size: 200% 200%;
+  animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-title {
+  animation: fadeInUp 1s ease-in-out forwards, floatText 3s ease-in-out infinite;
+}
+
+/* body {
+  font-family: "Inter", "Poppins", "Segoe UI", sans-serif;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+} */
+header,
+nav {
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+nav a {
+  color: #e0e0e0;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #00aaff;
+}
+#_boxes ul li figure h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+#_boxes ul li figure figcaption {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  text-align: left;
+}
+
+#_boxes ul li figure a em {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.3px;
+}
+/* .card-section{
+    margin-bottom: 10px;
+} */
+
+.reviews{
+    margin-top: 50px;
+}

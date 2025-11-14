@@ -1,0 +1,22 @@
+import React from 'react'
+import { assets } from '../assets/assets'
+import Navbar from '../components/Navbar'
+import Hero from '../components/Hero'
+import JobListing from '../components/JobListing'
+import AppDownload from '../components/AppDownload'
+import Footer from '../components/Footer'
+const FindJob = () => {
+  return (
+    <div>
+   
+      <Navbar />
+      <Hero />
+      <JobListing />
+      <Footer />
+
+      
+    </div>
+  )
+}
+
+export default FindJob
